@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Geolocation</button>
+<div id="output"></div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" ></script>
+
+
+<script>
+var x = document.getElementById("output");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else { 
+    x.innerHTML = "Not Supporting";
+  }
+}
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+
+    
+
+</script>
+
+</body>
+</html>
